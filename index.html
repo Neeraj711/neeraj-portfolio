@@ -2,135 +2,137 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Neeraj Malviya | Java Developer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Neeraj Malviya | Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f4f4;
-      color: #333;
+    .floating {
+      animation: float 3s ease-in-out infinite;
     }
-    header {
-      background: #0d6efd;
-      color: white;
-      padding: 2rem;
-      text-align: center;
+    @keyframes float {
+      0%   { transform: translateY(0px); }
+      50%  { transform: translateY(-20px); }
+      100% { transform: translateY(0px); }
     }
-    h1 {
-      margin: 0;
-      font-size: 2.5rem;
+    .move-button {
+      transition: transform 0.3s ease;
     }
-    p.title {
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
+    .move-button:hover {
+      transform: translateY(-5px) scale(1.05);
     }
-    .container {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+    /* Scroll animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
-    section {
-      margin-bottom: 2rem;
-    }
-    h2 {
-      color: #0d6efd;
-      border-bottom: 2px solid #0d6efd;
-      padding-bottom: 0.5rem;
-    }
-    ul {
-      padding-left: 1.5rem;
-    }
-    .highlight {
-      background: #e9f5ff;
-      padding: 0.8rem;
-      border-left: 4px solid #0d6efd;
-      margin: 1rem 0;
-    }
-    footer {
-      text-align: center;
-      padding: 1.5rem;
-      background: #222;
-      color: #ccc;
-    }
-    a {
-      color: #0d6efd;
-      text-decoration: none;
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
     }
   </style>
 </head>
-<body>
+<body class="bg-gradient-to-br from-gray-900 to-black text-white font-sans min-h-screen flex flex-col items-center justify-start text-center px-6 py-10">
 
-<header>
-  <h1>Neeraj Malviya</h1>
-  <p class="title">Java Developer | Spring Boot | Kafka | Redis | MySQL | MongoDB</p>
-  <p>Indore, Madhya Pradesh · <a href="neerajmalviya7746@gmail.com">neerajmalviya7746@gmail.com </a></p>
-</header>
+  <h1 class="text-5xl font-bold mb-2">Neeraj Malviya</h1>
+  <p class="text-lg text-gray-300 mb-6">Java Developer | Spring Boot | Kafka | Redis | MySQL | MongoDB</p>
 
-<div class="container">
-  <section>
-    <h2>About Me</h2>
-    <p>I’m a backend Java Developer with experience in microservices, Kafka-based event-driven systems, and high-performance APIs using Spring Boot. Currently interning at Shiavnski Technologies LLP, I'm passionate about building scalable backend systems and clean architecture.</p>
-  </section>
+  <!-- Floating Java Image -->
+  <div class="floating mb-6">
+    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968282.png" alt="Java Logo" class="w-28 h-28 mx-auto" />
+  </div>
 
-  <section>
-    <h2>Technical Skills</h2>
-    <ul>
-      <li><strong>Languages:</strong> Java, SQL</li>
-      <li><strong>Frameworks:</strong> Spring Boot, WebFlux, Spring Data JPA</li>
-      <li><strong>Messaging:</strong> Apache Kafka</li>
-      <li><strong>Databases:</strong> MySQL, MongoDB, Redis</li>
-      <li><strong>Tools:</strong> Git, Docker, Postman</li>
+  <!-- Animated Button -->
+  <a href="#projects" class="bg-yellow-500 text-black font-semibold px-6 py-3 rounded-full move-button shadow-lg mb-16 inline-block">
+    Explore Projects
+  </a>
+
+  <!-- Portfolio Summary Section -->
+  <section id="portfolio" class="max-w-4xl w-full mb-16 text-left">
+    <h2 class="text-3xl font-semibold mb-6">Portfolio</h2>
+    <p class="text-gray-300 leading-relaxed mb-4">
+      I am a passionate backend developer with 2+ years of experience in building scalable applications and microservices. Skilled in Java, Spring Boot, and Kafka, I specialize in creating efficient and reliable systems using Redis for caching and MongoDB & MySQL for data storage.
+    </p>
+    <ul class="list-disc list-inside text-gray-300 space-y-2">
+      <li>Developed multiple Spring Boot microservices with RESTful APIs</li>
+      <li>Implemented event-driven architecture using Apache Kafka</li>
+      <li>Optimized application performance using Redis caching strategies</li>
+      <li>Designed database schemas and wrote complex queries for MongoDB and MySQL</li>
+      <li>Familiar with cloud deployment and CI/CD pipelines</li>
     </ul>
   </section>
 
-  <section>
-    <h2>Experience</h2>
-    <div class="highlight">
-      <strong>Shiavnski Technologies LLP</strong> – Java Developer Intern  
-      <br/>Jan 2024 – Present  
-      <ul>
-        <li>Built REST APIs and microservices using Spring Boot</li>
-        <li>Integrated Kafka for real-time messaging</li>
-        <li>Used Redis for caching and MongoDB for document-based storage</li>
-      </ul>
+  <!-- Projects Section -->
+  <section id="projects" class="max-w-4xl w-full">
+    <h2 class="text-3xl font-semibold mb-8">My Projects</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="bg-gray-800 rounded-lg p-6 fade-in">
+        <h3 class="text-xl font-bold mb-2">Spring Boot CRM</h3>
+        <p class="text-gray-300 mb-4">
+          A customer relationship management system built with Spring Boot and MySQL.
+        </p>
+        <a href="https://github.com/neeraj711/microservices" target="_blank" class="text-yellow-400 hover:underline">
+          View on GitHub
+        </a>
+      </div>
+
+      <div class="bg-gray-800 rounded-lg p-6 fade-in">
+        <h3 class="text-xl font-bold mb-2">Kafka Data Pipeline</h3>
+        <p class="text-gray-300 mb-4">
+          Real-time data processing pipeline using Kafka and Redis.
+        </p>
+        <a href="https://github.com/neeraj711/redis-repository" target="_blank" class="text-yellow-400 hover:underline">
+          View on GitHub
+        </a>
+      </div>
+
+      <div class="bg-gray-800 rounded-lg p-6 fade-in">
+        <h3 class="text-xl font-bold mb-2">MongoDB Inventory App</h3>
+        <p class="text-gray-300 mb-4">
+          Inventory management application using MongoDB and Spring Boot REST APIs.
+        </p>
+        <a href="https://github.com/neeraj711 target="_blank" class="text-yellow-400 hover:underline">
+          View on GitHub
+        </a>
+      </div>
+
+      <div class="bg-gray-800 rounded-lg p-6 fade-in">
+        <h3 class="text-xl font-bold mb-2">Redis Caching Example</h3>
+        <p class="text-gray-300 mb-4">
+          Sample project demonstrating caching in Spring Boot using Redis.
+        </p>
+        <a href="https://github.com/neeraj711/redis-cache-example" target="_blank" class="text-yellow-400 hover:underline">
+          View on GitHub
+        </a>
+      </div>
     </div>
   </section>
 
-  <section>
-    <h2>Education</h2>
-    <ul>
-      <li><strong>MCA</strong> – Shri G S Institute of Technology & Science, Indore (2022–2024)</li>
-      <li><strong>BCA</strong> – Govt. Nirbhay Singh Patel New Science College, Indore (2019–2022)</li>
-    </ul>
-  </section>
+  <script>
+    // Scroll animation to fade in project cards
+    const faders = document.querySelectorAll('.fade-in');
 
-  <section>
-    <h2>Certifications</h2>
-    <ul>
-      <li>Java with Data Structures & Algorithms</li>
-      <li>Tata Imagination Challenge – Participant</li>
-    </ul>
-  </section>
+    const appearOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px"
+    };
 
-  <section>
-    <h2>Additional Experience</h2>
-    <p>2 years of teaching experience in Computer Science and Math at New Pink Flower School and US International School, strengthening communication and mentoring skills.</p>
-  </section>
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          return;
+        } else {
+          entry.target.classList.add('visible');
+          appearOnScroll.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
 
-  <section>
-    <h2>Get in Touch</h2>
-    <p>Email: <a href="mailto:neerajmalviya7746@gmail.com">neerajmalviya7746@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/neeraj711" target="_blank">https://github.com/neeraj711</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/neeraj-malviya-ba5288190/" target="_blank">https://linkedin.com/in/neerajmalviya</a></p>
-  </section>
-</div>
-
-<footer>
-  © 2025 Neeraj Malviya. All rights reserved.
-</footer>
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
 
 </body>
 </html>
